@@ -14,9 +14,7 @@ use App\Http\Controllers\FighterController;
 |
 */
 
-Route::get('/fighters/create', [FighterController::class, 'create'])->name('fighters.create');
-Route::get('/fighters', [FighterController::class, 'index'])->name('fighters.index');
-Route::post('/fighters', [FighterController::class, 'store'])->name('fighters.store');
+Route::get('/fighters', [FighterController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
