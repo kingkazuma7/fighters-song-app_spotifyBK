@@ -1,4 +1,4 @@
-<form action="{{ route('fighters.store') method="POST" }}">
+<form action="{{ route('fighters.store') }}" method="POST">
   @csrf
   <div class="form-group">
     <label>Name</label>

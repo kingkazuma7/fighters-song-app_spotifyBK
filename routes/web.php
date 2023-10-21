@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FighterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/fighters/create', [FighterController::class, 'create'])->name('fighters.create');
+Route::get('/fighters', [FighterController::class, 'index'])->name('fighters.index');
+Route::post('/fighters', [FighterController::class, 'store'])->name('fighters.store');
 
 Route::get('/', function () {
     return view('welcome');

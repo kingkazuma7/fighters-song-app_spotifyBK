@@ -27,4 +27,10 @@ class FighterController extends Controller
         return redirect()->route('fighters.index')
             ->with('success', 'ファイターが登録されました。');
     }
+    
+    public function index()
+    {
+        $fighters = Fighter::all();
+        return view('fighters.index', compact('fighters'));
+    }
 }
