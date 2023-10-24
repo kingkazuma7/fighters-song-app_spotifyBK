@@ -21,14 +21,22 @@ fetch('https://accounts.spotify.com/api/token', {
   window.spotifyToken = token;
   return fetch('https://api.spotify.com/v1/search?q=Scars&type=track', {
     headers: {
-      'Authorization': 'Bearer ' + window.spotifyToken
+      'Authorization': 'Battle Scars ' + window.spotifyToken
     }
   });
 }).then(function (response) {
   return response.json();
 }).then(function (data) {
-  // 検索結果を表示します。
-  console.log(data);
+  // 検索結果を取得します。
+  var tracks = data.tracks.items;
+
+  // 検索結果をHTMLに表示します。
+  var tracksList = document.getElementById('tracks');
+  tracks.forEach(function (track) {
+    var listItem = document.createElement('li');
+    listItem.textContent = "".concat(track.name, " by ").concat(track.artists[0].name);
+    tracksList.appendChild(listItem);
+  });
 })["catch"](function (error) {
   return console.error('Error:', error);
 });
