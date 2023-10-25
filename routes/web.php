@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FighterController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\FighterController;
 */
 
 Route::get('/fighters', [FighterController::class, 'index']);
+Route::get('/players', [PlayerController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
