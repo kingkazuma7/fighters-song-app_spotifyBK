@@ -7,8 +7,13 @@
     <h1>格闘家の入場曲</h1>
     <ul>
         @foreach ($players as $player)
-            <li><strong>格闘家:</strong> {{ $player['name'] }}</li>
-            <li><strong>入場曲:</strong> {{ $player['entranceSong'] }}</li>
+            <li>格闘家: {{ $player['name'] }}</li>
+            @if(isset($player['spotifyUrl']))
+                <li>入場曲: <a href="{{ $player['spotifyUrl'] }}">{{ $player['entranceSong'] }}</a></li>
+            @else
+                <li>入場曲: {{ $player['entranceSong'] }}</li>
+            @endif
+
         @endforeach
     </ul>
 </body>
