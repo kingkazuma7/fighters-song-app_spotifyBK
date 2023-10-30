@@ -15,7 +15,6 @@ use App\Http\Controllers\PlayerController;
 |
 */
 
-Route::get('/fighters', [FighterController::class, 'index']);
 Route::get('/players', [PlayerController::class, 'index']);
 
 Route::get('/', function () {
